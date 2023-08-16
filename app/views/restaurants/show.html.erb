@@ -1,0 +1,19 @@
+<h1>Informations sur le restaurant</h1>
+<br>
+<br>
+
+<div class= "container">
+  <h3>Nom: <%= @restaurant.name %></h3>
+  <ul class="list-group">
+    <li class="list-group-item">Adresse: <%= @restaurant.address %></li>
+    <li class="list-group-item">Numéro de télephone: <%= @restaurant.phone_number %></li>
+    <li class="list-group-item ">Categorie: <%= @restaurant.category %></li>
+  </ul>
+  <% @restaurant.reviews.each_with_index do |review, index| %>
+
+    <li class="list-group-item ">Review N<%=index + 1 %>: <%= review.content %></li>
+  <% end %>
+  <%= link_to "Ajouter un restaurant", new_restaurant_path, class: "btn btn-success mt-2" %>
+<%= link_to "Retour a tous les restaurant", restaurants_path, class: "btn btn-info mt-2" %>
+<%= link_to "ajouter une review", new_restaurant_review_path(@restaurant), class: "btn btn-primary mt-2" %>
+</div>
